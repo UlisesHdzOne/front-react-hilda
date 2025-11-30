@@ -1,0 +1,7 @@
+{
+  "name": "front-react-hilda",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
