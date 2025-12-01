@@ -1,3 +1,5 @@
+import { User } from "../../../types";
+
 export interface LoginCredentials {
   phone: string;
   password: string;
@@ -9,17 +11,11 @@ export interface RegisterData {
   password: string;
 }
 
-export interface AuthUser {
-  id: number;
-  name: string;
-  phone: string;
-  role: string;
-}
-
 export interface AuthResponse {
   access_token: string;
-  user: AuthUser;
+  user: User;
 }
 
+export type AuthUser = User;
 export type LoginResponse = AuthResponse;
 export type RegisterResponse = AuthResponse;

@@ -1,8 +1,6 @@
 import { Redirect } from "react-router-dom";
 import { ROUTES } from "./routes";
-import { useAuth } from "../features/auth/hooks/useAuth";
-
-
+import { useAuth } from "../contexts/AuthContext";
 
 interface Props {
   component: React.ComponentType;

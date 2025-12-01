@@ -1,6 +1,7 @@
 import { IonApp, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import AppRouter from "./router/AppRouter";
+import { AuthProvider } from "./contexts/AuthContext";
 
 /* Core CSS */
 import "@ionic/react/css/core.css";
@@ -27,9 +28,11 @@ setupIonicReact();
 const App = () => {
   return (
     <IonApp>
-      <IonReactRouter>
-        <AppRouter />
-      </IonReactRouter>
+      <AuthProvider>
+        <IonReactRouter>
+          <AppRouter />
+        </IonReactRouter>
+      </AuthProvider>
     </IonApp>
   );
 };
