@@ -9,8 +9,8 @@ import {
   IonAlert,
 } from "@ionic/react";
 import { useForm } from "react-hook-form";
-import { RegisterData } from "../../features/auth/api/auth.types";
 import { useAuth } from "../../contexts/AuthContext";
+import { RegisterData } from "../../types";
 
 interface RegisterFormProps {
   onSuccess?: () => void;
@@ -158,7 +158,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
         isOpen={showAlert}
         onDidDismiss={handleAlertDismiss}
         header="Error de registro"
-        //message={error}
+        message={error || ""}
         buttons={["OK"]}
       />
     </>

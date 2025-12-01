@@ -9,8 +9,8 @@ import {
   IonAlert,
 } from "@ionic/react";
 import { useForm } from "react-hook-form";
-import { LoginCredentials } from "../../features/auth/api/auth.types";
 import { useAuth } from "../../contexts/AuthContext";
+import { LoginCredentials } from "../../types";
 
 interface LoginFormProps {
   onSuccess?: () => void;
@@ -113,7 +113,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
         isOpen={showAlert}
         onDidDismiss={handleAlertDismiss}
         header="Error de autenticación"
-        //message={error}
+        message={error ||""}
         buttons={["OK"]}
       />
     </>

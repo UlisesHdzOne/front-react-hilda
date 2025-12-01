@@ -18,31 +18,20 @@ class ApiService {
     this.setupInterceptors();
   }
 
+  // ✅ MEJORADO: En src/lib/api/client.ts
   private setupInterceptors(): void {
-    // Request interceptor para agregar token
-    this.client.interceptors.request.use(
-      (config) => {
-        const token = localStorage.getItem("access_token");
-        if (token && config.headers) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
-        return config;
-      },
-      (error: AxiosError) => Promise.reject(error)
-    );
-
-    // Response interceptor para manejar respuestas estandarizadas
     this.client.interceptors.response.use(
-      (response: AxiosResponse<ApiResponse>) => {
-        return response;
-      },
-      (error: AxiosError<ApiError>) => {
-        console.error("API Error Interceptor:", error.response?.data);
+      (response) => response,
+      (error: AxiosError) => {
+        if (error.response?.status === 401) {
+          // Auto-logout en token expirado
+         // authService.logout(); aun no lo tengo creeado en el back
+          window.location.href = "/login";
+        }
         return Promise.reject(error);
       }
     );
   }
-
   public async get<T>(url: string, params?: unknown): Promise<ApiResponse<T>> {
     const response = await this.client.get<ApiResponse<T>>(url, { params });
     return response.data;
