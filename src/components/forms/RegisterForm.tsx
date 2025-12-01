@@ -71,9 +71,15 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
     }
   }, [error]);
 
-  const onFormSubmit = async (data: RegisterData) => {
+  const onFormSubmit = async (
+    data: RegisterData & { confirmPassword: string }
+  ) => {
     try {
-      await registerUser(data);
+      // ✅ CORRECCIÓN: Remover confirmPassword antes de enviar
+      const { name, phone, password } = data;
+      const userData: RegisterData = { name, phone, password };
+
+      await registerUser(userData);
       onSuccess?.();
     } catch (err) {
       console.error("Register error:", err);
