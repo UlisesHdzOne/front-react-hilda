@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IonContent,
   IonHeader,
@@ -11,9 +10,9 @@ import {
   IonText,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import AuthLayout from "../layouts/AuthLayout";
-import { ROUTES } from "../router/routes";
-import { RegisterForm } from "../components/forms/RegisterForm";
+import AuthLayout from "../app/layouts/AuthLayout";
+import { ROUTES } from "../app/router/routes";
+import RegisterForm from "../components/forms/RegisterForm";
 
 const RegisterPage = () => {
   const history = useHistory();

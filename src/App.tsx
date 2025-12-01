@@ -1,7 +1,6 @@
 import { IonApp, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import AppRouter from "./router/AppRouter";
-import { AuthProvider } from "./contexts/AuthContext";
+import AppRouter from "./app/router/AppRouter";
 
 /* Core CSS */
 import "@ionic/react/css/core.css";
@@ -22,6 +21,7 @@ import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme */
 import "./theme/variables.css";
+import AuthProvider from "./app/providers/AuthProvider";
 
 setupIonicReact();
 

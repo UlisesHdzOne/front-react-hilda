@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IonContent,
   IonHeader,
@@ -17,10 +16,10 @@ import {
   IonButton,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../app/providers/authContext.types";
 
 const DashboardPage = () => {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
   const history = useHistory();
 
   return (

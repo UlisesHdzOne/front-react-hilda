@@ -10,9 +10,10 @@ import {
   IonText,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import AuthLayout from "../layouts/AuthLayout";
-import { LoginForm } from "../components/forms/LoginForm";
-import { ROUTES } from "../router/routes";
+import AuthLayout from "../app/layouts/AuthLayout";
+//import { LoginForm } from "../components/forms/LoginForm";
+import { ROUTES } from "../app/router/routes";
+import LoginForm from "../components/forms/LoginForm";
 
 const LoginPage = () => {
   const history = useHistory();

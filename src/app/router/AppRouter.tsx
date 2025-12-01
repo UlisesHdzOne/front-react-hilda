@@ -2,16 +2,15 @@ import { IonReactRouter } from "@ionic/react-router";
 import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "./routes";
 
-import PublicRoute from "./PublicRoute";
-import ProtectedRoute from "./ProtectedRoute";
-import AdminRoute from "./AdminRoute";
-
 // Pages
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import HomePage from "../pages/HomePage";
-import ProfilePage from "../pages/ProfilePage";
-import DashboardPage from "../pages/admin/DashboardPage";
+import LoginPage from "../../pages/LoginPage";
+import RegisterPage from "../../pages/RegisterPage";
+import HomePage from "../../pages/HomePage";
+import ProfilePage from "../../pages/ProfilePage";
+import DashboardPage from "../../pages/admin/DashboardPage";
+import PublicRoute from "./guards/PublicRoute";
+import ProtectedRoute from "./guards/ProtectedRoute";
+import AdminRoute from "./guards/AdminRoute";
 
 const AppRouter = () => {
   return (

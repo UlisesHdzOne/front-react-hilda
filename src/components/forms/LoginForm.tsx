@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from "react";
-import {
-  IonItem,
-  IonInput,
-  IonButton,
-  IonLabel,
-  IonNote,
-  IonSpinner,
-  IonAlert,
-} from "@ionic/react";
-import { useForm } from "react-hook-form";
-import { useAuth } from "../../contexts/AuthContext";
-import { LoginCredentials } from "../../types";
+import { useEffect, useState } from 'react'
+import { useAuthContext } from '../../app/providers/authContext.types';
+import { useForm } from 'react-hook-form';
+import { LoginCredentials } from '../../types';
+import { IonItem, IonLabel, IonInput, IonNote, IonButton, IonAlert, IonSpinner } from '@ionic/react';
 
 interface LoginFormProps {
-  onSuccess?: () => void;
+    onSuccess?: () => void;
 }
 
-export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
-  const { login, isLoading, error, clearError } = useAuth();
+const LoginForm = ({ onSuccess }: LoginFormProps) => {
+
+    const { login, isLoading, error, clearError } = useAuthContext();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const {
@@ -113,9 +106,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
         isOpen={showAlert}
         onDidDismiss={handleAlertDismiss}
         header="Error de autenticación"
-        message={error ||""}
+        message={error || ""}
         buttons={["OK"]}
       />
     </>
   );
-};
+}
+
+export default LoginForm

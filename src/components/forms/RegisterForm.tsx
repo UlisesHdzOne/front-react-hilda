@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../../app/providers/authContext.types";
+import { useForm } from "react-hook-form";
+import { RegisterData } from "../../types";
 import {
-  IonItem,
-  IonInput,
+  IonAlert,
   IonButton,
+  IonInput,
+  IonItem,
   IonLabel,
   IonNote,
   IonSpinner,
-  IonAlert,
 } from "@ionic/react";
-import { useForm } from "react-hook-form";
-import { useAuth } from "../../contexts/AuthContext";
-import { RegisterData } from "../../types";
 
 interface RegisterFormProps {
   onSuccess?: () => void;
 }
 
-export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
-  const { register: registerUser, isLoading, error, clearError } = useAuth();
+const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
+  const {
+    register: registerUser,
+    isLoading,
+    error,
+    clearError,
+  } = useAuthContext();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const {
@@ -170,3 +175,5 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
     </>
   );
 };
+
+export default RegisterForm;

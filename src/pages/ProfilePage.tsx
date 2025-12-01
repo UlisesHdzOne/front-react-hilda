@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IonContent,
   IonHeader,
@@ -11,13 +10,12 @@ import {
   IonCardContent,
   IonItem,
   IonLabel,
-  //IonText,
   IonAvatar,
 } from "@ionic/react";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuthContext } from "../app/providers/authContext.types";
 
 const ProfilePage = () => {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
 
   return (
     <IonPage>

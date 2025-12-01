@@ -1,14 +1,14 @@
 import { Redirect } from "react-router-dom";
-import { ROUTES } from "./routes";
-import { useAuth } from "../contexts/AuthContext";
 import { IonContent, IonSpinner } from "@ionic/react";
+import { ROUTES } from "../routes";
+import { useAuthContext } from "../../providers/authContext.types";
 
-interface Props {
+interface AdminRouteProps {
   component: React.ComponentType;
 }
 
-const AdminRoute = ({ component: Component }: Props) => {
-  const { user, isLoading } = useAuth();
+const AdminRoute = ({ component: Component }: AdminRouteProps) => {
+  const { user, isLoading } = useAuthContext();
 
   if (isLoading) {
     return (

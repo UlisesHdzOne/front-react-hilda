@@ -1,4 +1,3 @@
-import React from "react";
 import {
   IonContent,
   IonHeader,
@@ -15,11 +14,11 @@ import {
   IonCol,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
-import { ROUTES } from "../router/routes";
+import { ROUTES } from "../app/router/routes";
+import { useAuthContext } from "../app/providers/authContext.types";
 
 const HomePage = () => {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuthContext();
   const history = useHistory();
 
   const handleLogout = () => {
